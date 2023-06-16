@@ -6296,7 +6296,7 @@ void initgfx () {
 
 // Entry point from the Arduino IDE
 void setup () {
-  Serial.begin(9600);
+  Serial.begin(115200);
   int start = millis();
   while ((millis() - start) < 5000) { if (Serial) break; }
   initworkspace();
