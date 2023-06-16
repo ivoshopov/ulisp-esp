@@ -292,6 +292,48 @@ volatile uint8_t Flags = 0b00001; // PRINTREADABLY set by default
 object *tee;
 void pfstring (PGM_P s, pfun_t pfun);
 
+void pserial (char c);
+void pfl (pfun_t pfun);
+symbol_t sym (builtin_t x);
+void psymbol (symbol_t name, pfun_t pfun);
+void printobject (object *form, pfun_t pfun);
+inline void pln (pfun_t pfun);
+void indent (uint8_t spaces, char ch, pfun_t pfun);
+void printstring (object *form, pfun_t pfun);
+object *lispstring (char *s);
+uint8_t nthchar (object *string, int n);
+bool listp (object *x);
+object *apply (object *function, object *args, object *env);
+bool keywordp (object *obj);
+uint8_t getminmax (builtin_t name);
+intptr_t lookupfn (builtin_t name);
+int listlength (object *list);
+void ulispreset ();
+object *read (gfun_t gfun);
+void pintbase (uint32_t i, uint8_t base, pfun_t pfun);
+void pint (int i, pfun_t pfun);
+object *eval (object *form, object *env);
+object *intern (symbol_t name);
+void checkminmax (builtin_t name, int nargs);
+bool stringcompare (object *args, bool lt, bool gt, bool eq);
+void prin1object (object *form, pfun_t pfun);
+object *findpair (object *var, object *env);
+char *lookupdoc (builtin_t name);
+char *cstring (object *form, char *buffer, int buflen);
+void pstr (char c);
+void printsymbol (object *form, pfun_t pfun);
+unsigned int tablesize (int n);
+bool findsubstring (char *part, builtin_t name);
+void pbuiltin (builtin_t name, pfun_t pfun);
+void plispstr (symbol_t name, pfun_t pfun);
+int glibrary ();
+void testescape ();
+void repl (object *env);
+object *fn_princtostring (object *args, object *env);
+object *tf_progn (object *args, object *env);
+int gserial ();
+void supersub (object *form, int lm, int super, pfun_t pfun);
+int subwidthlist (object *form, int w);
 // Error handling
 
 void errorsub (symbol_t fname, PGM_P string) {
